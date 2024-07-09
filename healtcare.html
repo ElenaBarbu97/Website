@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style - Healthcare.css"> <!--legare de css-->
+
+          <!-- Urmatoarele 3 linkuri le-am luat de pe google fonts pentru fontul Open Sans -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> 
+
+        <!------Pentru butonul de return to the top------------>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+
+        <!---------Pentru search bar--------------------->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+        <title>My blog</title>
+
+    </head>
+    <body>
+
+        <nav>
+            <ul class="sidebar">
+                <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                <li><a href="main.html"> HOME</a></li>
+                <li><a href="about.html"> ABOUT</a></li>
+                <li><a href="gallery.html"> GALLERY</a></li>
+                <li><a href="healtcare.html"> HEALTHCARE TIPS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <ul>
+                <li class="hideOnMobile"><a href="main.html"> HOME</a></li>
+                <li class="hideOnMobile"><a href="about.html"> ABOUT</a></li>
+                <li class="hideOnMobile"><a href="gallery.html"> GALLERY</a></li>
+                <li class="hideOnMobile"><a href="healtcare.html"> HEALTHCARE TIPS</a></li>
+                <li class="hideOnMobile"><a href="contact.html">CONTACT</a></li>
+                <!---adaugi item pentru acea iconita de meniu -->
+                <li class="menuButton" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a>
+            </ul><!-- am adaugat linkuri pentru navigare-->
+            
+            
+        </nav> 
+        <script>
+            function showSidebar(){
+                const sidebar= document.querySelector('.sidebar')
+                sidebar.style.display='flex'         
+            } /*face vizibil sidebar atunci cand se apasa pe iconita menu*/
+        </script>
+
+        <script>
+            function hideSidebar(){
+                const sidebar= document.querySelector('.sidebar')
+                sidebar.style.display='none'       
+            } /* dispare sidebar-ul atunci cand se apasa pe iconita x*/
+        </script>
+
+
+
+
+        <div class="Container">
+            <h1 class="healthcare-page-title">All posts</h1>
+            <div id="searchContainer">
+                <form  class="searchBar">
+                    <input type="text" placeholder="Search">
+                    <button onclick="searchPosts()"><img src="Images/Healthcare/search.png"></button>
+                </form>
+                <script>
+                    function searchPosts() {
+                        var searchInput = document.querySelector(".searchBar input").value.toLowerCase();
+                        var articles = document.querySelectorAll(".blog-post");
+
+                        for (var i = 0; i < articles.length; i++) {
+                            var title = articles[i].getElementsByClassName("blog-post_title")[0].innerText.toLowerCase();
+                            if (searchInput === '' || title.includes(searchInput)) {
+                                articles[i].style.display = "block";
+                            } else {
+                                articles[i].style.display = "none";
+                            }
+                        }
+                    }
+                </script>
+    
+            </div>
+    
+
+            <div class="blog-post">
+                <div class="blog-post_img">
+                    <img src="Images/Healthcare/blood_presure.png">
+                </div>
+                <div class="blog-post_info">
+                    
+                    <h2 class="blog-post_title">How to accurately measure blood pressure</h2>
+
+                    <p class="blog-post_text">Learn more about the steps that must be followed when measuring blood pressure.</p>
+                    <div class="blog-post_date">
+                        <span> Barbu Elena 12/04/2024</span>
+                    </div>
+                    <a href="healtcare-blood-pressure.html" class="blog-post_cta ">Read more</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <div class="blog-post_img">
+                    <img src="Images/Healthcare/Glucometer.jpg">
+                </div>
+                <div class="blog-post_info">
+                    <h2 class="blog-post_title">How to use a glucometer</h2>
+                    <p class="blog-post_text">Find out how to properly use a glucometer.</p>
+                    <div class="blog-post_date">
+                        <span> Barbu Elena 12/04/2024</span>
+                    </div>
+                    <a href="healthcare-glucometer.html" class="blog-post_cta ">Read more</a>
+                </div>
+            </div>
+           
+            </div>
+
+        </div>
+
+        <div class="blog-post">
+            <div class="blog-post_img">
+                <img src="Images/Healthcare/nutrition2.jpg">
+            </div>
+            <div class="blog-post_info">
+                <h2 class="blog-post_title">Healthy nutrition</h2>
+                <p class="blog-post_text"> Eight practical tips cover the basics of healthy eating and can help you make healthier choices.</p>
+                <div class="blog-post_date">
+                    <span> Barbu Elena 12/04/2024</span>
+                </div>
+                <a href="healthcare-nutrition.html" class="blog-post_cta ">Read more</a>
+            </div>
+        </div>
+       
+        </div>
+
+    </div>
+    <section id="bottom"></section>
+    <a href="#" class="back-to-top">
+        <span class="material-icons">arrow_upward
+        </span>
+    </a>
+
+
+    </body>
+
+</html>
